@@ -26,4 +26,16 @@ class PostService
     {
         return Http::delete("$this->baseUrl/posts/$id")->json();
     }
+    
+    public function login($data)
+    {
+        return Http::post("$this->baseUrl/auth/login", $data)->json();
+    }
+
+    public function me($token)
+    {
+        return Http::withToken($token)
+            ->get("$this->baseUrl/auth/me")
+            ->json();
+    }
 }

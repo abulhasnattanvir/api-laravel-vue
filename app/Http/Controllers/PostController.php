@@ -54,4 +54,11 @@ class PostController extends Controller
             $this->service->delete($id)
         );
     }
+    
+    public function login(Request $request)
+    {
+        return response()->json(
+            $this->service->login($request->all())
+        );
+    }
 }
